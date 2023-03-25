@@ -4,9 +4,12 @@ import TextField from "@mui/material/TextField";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { login } from "./features/user/userSice";
+import Appbar from "./Appbar";
+
 
 export default function Signup() {
   const dispatch = useDispatch();
+ 
 
   const formik = useFormik({
     initialValues: {
@@ -26,12 +29,13 @@ export default function Signup() {
 
   return (
     <>
-      <Container maxWidth="md">
-        <Grid container sx={{ p: 5 }}>
-          <Grid item md={2}></Grid>
-          <Grid item xs={12} md={6}>
+   <Appbar />
+      <Container maxWidth="lg">
+        <Grid container sx={{ mt: 20 }}>
+          <Grid item md={8}></Grid>
+          <Grid item xs={12} md={4}>
             <form onSubmit={formik.handleSubmit}>
-              <Grid container spacing={2}>
+              <Grid container spacing={1}>
                 <Grid item md={12} xs={12}>
                   <TextField
                     id="email"
@@ -67,7 +71,7 @@ export default function Signup() {
               </Grid>
             </form>
           </Grid>
-          <Grid item md={4}></Grid>
+        
         </Grid>
       </Container>
     </>
