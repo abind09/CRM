@@ -7,8 +7,8 @@ export default function Rout() {
     <>
       <Routes>
         {/* <Route path="/" element={<Signup />}></Route> */}
-        <Route path="/" element={<Signup />}></Route>
-        <Route path="home" element={<Appbar />}></Route>
+        <Route path="/" element={<Appbar />}></Route>
+        <Route path="login" element={<Signup />}></Route>
       </Routes>
     </>
   );
