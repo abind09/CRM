@@ -1,5 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import { Box, CardActionArea, Grid } from "@mui/material";
 
 const MatchList = () => {
   const [matchListData, setMatchListData] = useState();
@@ -7,10 +11,9 @@ const MatchList = () => {
     "https://api.cricapi.com/v1/matches?apikey=ba15cd30-b66d-4500-bbc5-20400f4b1323&offset=0";
   useEffect(() => {
     axios
-      .get()
+      .get(matchList)
       .then((res) => {
-        setMatchListData(res?.data);
-        // console.log(res);
+        setMatchListData(res?.data?.data);
       })
       .catch((error) => {
         console.log(error);
@@ -19,11 +22,15 @@ const MatchList = () => {
 
   return (
     <div>
-      {/* <Grid container spacing={2}>
-        {liveMatchData?.data?.map((data, index) => {
+      <Grid
+        container
+        spacing={2}
+        style={{ height: "550px", overflowY: "scroll" }}
+      >
+        {matchListData?.map((data, index) => {
           return (
-            <Grid item xs={12} md={4} sm={6}>
-              <Card key={index} style={{ height: 170 }}>
+            <Grid item xs={12} md={12} sm={12} key={index}>
+              <Card style={{ height: 170 }}>
                 <CardActionArea>
                   <CardContent>
                     <Typography
@@ -61,16 +68,16 @@ const MatchList = () => {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-                <CardActions>
+                {/* <CardActions>
                   <Button size="small" color="primary">
                     Share
                   </Button>
-                </CardActions>
+                </CardActions> */}
               </Card>
             </Grid>
           );
         })}
-      </Grid> */}
+      </Grid>
     </div>
   );
 };
