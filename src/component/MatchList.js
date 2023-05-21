@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Box, CardActionArea, Grid } from "@mui/material";
 import ResponsiveAppBar from "./Responsive";
+import Blog from "./Blog";
 
 const MatchList = () => {
   const [matchListData, setMatchListData] = useState();
@@ -71,6 +72,7 @@ const MatchList = () => {
           );
         })}
       </Grid>
+      <Blog />
     </div>
   );
 };

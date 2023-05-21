@@ -111,8 +111,8 @@ function ResponsiveAppBar() {
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Link to="/ranking">
-                    <Button sx={{ color: "black" }}>Ranking</Button>
+                  <Link to="/series">
+                    <Button sx={{ color: "black" }}>Series</Button>
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
@@ -146,9 +146,9 @@ function ResponsiveAppBar() {
               <Link to="/teams">
                 <Button sx={{ my: 2, ml: 2, color: "white" }}>Teams</Button>
               </Link>
-              <Link to="/ranking">
+              <Link to="/series">
                 {" "}
-                <Button sx={{ my: 2, ml: 2, color: "white" }}>Ranking</Button>
+                <Button sx={{ my: 2, ml: 2, color: "white" }}>Series</Button>
               </Link>
               <Link to="/schedule">
                 <Button
