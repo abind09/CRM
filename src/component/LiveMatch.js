@@ -4,13 +4,13 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Box, CardActionArea, Grid } from "@mui/material";
-import MatchList from "./MatchList";
 import { useRef } from "react";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ResponsiveAppBar from "./Responsive";
 
 const LiveMatch = () => {
-  const elementRef = useRef(null)
+  const elementRef = useRef(null);
   const [liveMatchData, setLiveMatchData] = useState();
   const LiveMatch =
     "https://api.cricapi.com/v1/currentMatches?apikey=ba15cd30-b66d-4500-bbc5-20400f4b1323&offset=0";
@@ -26,58 +26,26 @@ const LiveMatch = () => {
       });
   }, []);
 
-
-  const handleHorizontalScroll =()=>{
+  const handleHorizontalScroll = () => {
     let speed = 0;
     let distance = 0;
     let step = 0;
     let element = 0;
     let scrollAmount = 0;
-    const slideTimer = setInterval(()=>{
+    const slideTimer = setInterval(() => {
       element.scrollLeft += step;
       scrollAmount += Math.abs(step);
-      if(scrollAmount >= distance){
-        clearInterval(slideTimer)
+      if (scrollAmount >= distance) {
+        clearInterval(slideTimer);
       }
-    }, speed)
-  }
+    }, speed);
+  };
   return (
-    <Grid container style={{ marginTop: 25 , padding:10}}>
-      <Grid item md={3} xs={12} >
+    <Grid container>
+      <ResponsiveAppBar />
 
-
-        <Typography
-          variant="h5"
-          style={{
-            fontWeight: 400,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginBottom :20,
-            marginTop:10
-          }}
-        >
-          {" "}
-          Upcoming Matches
-        </Typography>
-        <MatchList />
-      </Grid>
       {/* <ArrowBackIosIcon onclick={()=>{handleHorizontalScroll(elementRef.current, 25, 100, -10)}}/> */}
-      <Grid item md={9} ref={elementRef}>
-      <Typography
-          variant="h5"
-          style={{
-            fontWeight: 400,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginBottom :20,
-            marginTop:10
-          }}
-        >
-          {" "}
-          Live Matches
-        </Typography>
+      <Grid item md={12} ref={elementRef}>
         {liveMatchData?.status === "failure" ? (
           <>
             <Typography

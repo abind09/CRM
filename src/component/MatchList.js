@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Box, CardActionArea, Grid } from "@mui/material";
+import ResponsiveAppBar from "./Responsive";
 
 const MatchList = () => {
   const [matchListData, setMatchListData] = useState();
@@ -22,14 +23,11 @@ const MatchList = () => {
 
   return (
     <div>
-      <Grid
-        container
-        spacing={2}
-        style={{ height: "550px", overflowY: "scroll" }}
-      >
+      <ResponsiveAppBar />
+      <Grid container spacing={2}>
         {matchListData?.map((data, index) => {
           return (
-            <Grid item xs={12} md={12} sm={12} key={index}>
+            <Grid item xs={12} md={4} key={index}>
               <Card style={{ height: 170 }}>
                 <CardActionArea>
                   <CardContent>
@@ -68,11 +66,6 @@ const MatchList = () => {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-                {/* <CardActions>
-                  <Button size="small" color="primary">
-                    Share
-                  </Button>
-                </CardActions> */}
               </Card>
             </Grid>
           );
